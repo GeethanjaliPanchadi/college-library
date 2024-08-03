@@ -1,0 +1,12 @@
+<form (ngSubmit)="submit()" [formGroup]="login">
+    <input type="text" name="username" [(ngModel)]="student.username" formControlName="username">
+    <small *ngIf="login.get('username')?.hasError('required')&&login.get('username')?.touched">Username Required!</small>
+    <small *ngIf="login.get('username')?.hasError('maxLength')&&login.get('username')?.touched">Length is long</small>
+    <small *ngIf="login.get('username')?.hasError('minLength')&&login.get('username')?.touched">Length is short</small>
+    <input type="text" name="name" [(ngModel)]="student.name" formControlName="name">
+    <input type="password" name="password" [(ngModel)]="student.password" formControlName="password">
+    <small *ngIf="login.get('password')?.hasError('required')&&login.get('password')?.touched">Password Required!</small>
+    <small *ngIf="login.get('password')?.hasError('maxLength')&&login.get('password')?.touched">Length is long</small>
+    <small *ngIf="login.get('password')?.hasError('minLength')&&login.get('password')?.touched">Length is short</small>
+    <button type="submit">Submit</button>
+</form>
